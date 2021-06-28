@@ -24,8 +24,16 @@ class Triangle extends Polygon {
   }
 }
 
-class Square extends Polygon{
-    get isValid(){
-        
+class Square extends Polygon {
+  get isValid() {
+    if (this.countSides !== 4) return false;
+    let sideLength = this.sides[0];
+    for (const side of this.sides) {
+      if (side !== sideLength) return false;
     }
+    return true;
+  }
+  get area() {
+    return this.sides[0] * this.sides[0];
+  }
 }
